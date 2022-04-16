@@ -1,0 +1,27 @@
+.service-card {
+    cursor: pointer;
+    border-radius: 10px;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+.service-card:hover {
+    box-shadow: 3px 3px 10px lightgray, -3px -3px 10px lightgray;
+}
+.service-card img {
+    border-radius: 10px;
+}
+.service-price::before {
+    content: '৳';
+}
+.service-price {
+    color: #F91944;
+}
+.card-btn {
+    background: #F91944;
+    color: white;
+    display: block;
+    width: 100%;
+}
+.card-btn:hover {
+    color: white;
+}

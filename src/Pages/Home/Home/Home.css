@@ -1,0 +1,10 @@
+.banner {
+    background: url(../../../images/banner.webp);
+    height: calc(100vh - 56px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: black;
+}

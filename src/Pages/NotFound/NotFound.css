@@ -1,0 +1,4 @@
+.bg {
+    background: linear-gradient(#152151, #11447C, #171847);
+    height: calc(100vh - 56px);
+}
