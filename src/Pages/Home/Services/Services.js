@@ -15,14 +15,14 @@ const Services = () => {
       price: 75000,
     },
     {
-      id: 12122021001,
+      id: 12122021002,
       name: "Colonscopy",
       img: service2,
       description: "Colonoscopy or coloscopy is the endoscopic examination of the large bowel and the distal part of the small bowel with a CCD camera or a fiber optic camera on a flexible tube passed through the anus.",
       price: 18000,
     },
     {
-      id: 12122021001,
+      id: 12122021003,
       name: "Laser Surgey",
       img: service3,
       description:
@@ -33,7 +33,7 @@ const Services = () => {
   return (
     <div id="services" className="container my-5">
       <h1 className="text-center mb-4" style={{color: '#F91944'}}>My Services</h1>
-      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-5">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
         {services.map((service) => (
           <Service key={service.id} service={service}></Service>
         ))}

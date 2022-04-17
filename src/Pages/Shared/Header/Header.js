@@ -5,7 +5,7 @@ import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   return (
-    <Navbar expand="lg">
+    <Navbar sticky="top" bg="white" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">Your Doctor</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
