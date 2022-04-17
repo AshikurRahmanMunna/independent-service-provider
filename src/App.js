@@ -5,10 +5,10 @@ import Login from './Pages/Login/Login';
 import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
-import SignUp from './Pages/SignUp/SignUp';
 import 'react-toastify/dist/ReactToastify.css';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import Checkout from './Pages/Checkout/Checkout';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/checkout" element={
           <RequireAuth>
             <Checkout></Checkout>

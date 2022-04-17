@@ -1,14 +1,20 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Spinner } from "react-bootstrap";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading/Loading";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
-import "./SignUp.css";
+import "./Register.css";
 
-const SignUp = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [agree, setAgree] = useState(false);
   let errorElement;
@@ -16,31 +22,44 @@ const SignUp = () => {
     useCreateUserWithEmailAndPassword(auth);
   const [updateProfile, updating, errorUpdateProfile] = useUpdateProfile(auth);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathName || "/";
 
-  if(error || errorUpdateProfile) {
-    errorElement = <p className="text-danger">{error.message || errorUpdateProfile.message}</p>
+  if (error || errorUpdateProfile) {
+    errorElement = (
+      <p className="text-danger">
+        {error.message || errorUpdateProfile.message}
+      </p>
+    );
   }
-  const handleSignUp = async (event) => {
+  if (loading || updating) {
+    return (
+      <div style={{height: '90vh'}} className="d-flex align-items-center justify-content-center">
+        <Loading></Loading>
+      </div>
+    );
+  }
+  const handleRegister = async (event) => {
     event.preventDefault();
     const firstName = event.target.firstname.value;
     const lastName = event.target.lastname.value;
     const name = `${firstName} ${lastName}`;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    await createUserWithEmailAndPassword(email, password)
+    await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
   };
-  if(user) {
-    navigate('/');
+  if (user) {
+    navigate(from, {replace: true});
   }
   console.log(user);
   return (
     <div className="form-container d-flex align-items-center justify-content-center">
       <div>
         <h1 className="text-center mb-4">
-          Sign <span className="text-warning">Up</span>
+          Regis<span className="text-warning">ter</span>
         </h1>
-        <form onSubmit={handleSignUp} className="form">
+        <form onSubmit={handleRegister} className="form">
           <input
             type="text"
             name="firstname"
@@ -85,10 +104,17 @@ const SignUp = () => {
             disabled={!agree}
             type="submit"
             className={!agree ? "btn-muted" : "form-submit-btn"}
-            value="Sign Up"
+            value="Register"
           />
         </form>
-        <p>Already Have an account. <span><Link className='text-warning text-decoration-none' to="/login">Log In</Link></span></p>
+        <p>
+          Already Have an account.{" "}
+          <span>
+            <Link className="text-warning text-decoration-none" to="/login">
+              Log In
+            </Link>
+          </span>
+        </p>
         <ToastContainer></ToastContainer>
         <SocialLogin></SocialLogin>
       </div>
@@ -96,4 +122,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Register;

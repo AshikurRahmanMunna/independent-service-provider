@@ -18,11 +18,11 @@ const Header = () => {
             <Nav.Link as={CustomLink} to="/">Home</Nav.Link>
             <Nav.Link as={CustomLink} to="/about">About</Nav.Link>
             {
-              user ? <button onClick={() => signOut(auth)} className="btn btn-link text-decoration-none text-black">Sign Out</button> 
+              user ? <button onClick={() => signOut(auth)} className="btn btn-link text-decoration-none text-black">Log Out</button> 
               : 
               <>
                 <Nav.Link as={CustomLink} to="/login">Login</Nav.Link>
-                <Nav.Link as={CustomLink} to="/signup">Signup</Nav.Link>
+                <Nav.Link as={CustomLink} to="/register">Register</Nav.Link>
               </>
             }
           </Nav>

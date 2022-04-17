@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
         <hr className="mt-3" style={{marginBottom: '-80px'}} />
       </div>
-      <h5 className="text-center pb-2 pb-3 mb-0">&copy; Copyright {year} || Your Doctor.com</h5>
+      <h5 className="text-center pb-4 mb-0">&copy; Copyright {year} || Your Doctor.com</h5>
     </footer>
   );
 };

@@ -2,12 +2,26 @@ import React from 'react';
 import './SocialLogin.css';
 import google from '../../../images/google.png';
 import facebook from '../../../images/facebook.png';
-import { useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithFacebook, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../Loading/Loading';
 
 const SocialLogin = () => {
     const [signInWithGoogle, userGoogle, loadingGoogle, errorGoogle] = useSignInWithGoogle(auth);
     const [signInWithFacebook, userFacebook, loadingFacebook, errorFacebook] = useSignInWithFacebook(auth);
+    const [user, loading, error] = useAuthState(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
+    if(loadingGoogle || loadingFacebook) {
+        return <div style={{height: '50px'}}>
+            <Loading></Loading>
+        </div>
+    }
+    if(user) {
+        navigate(from, {replace: true});
+    }
     return (
         <div>
             <div className='or'>
