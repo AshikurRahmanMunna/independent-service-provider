@@ -7,6 +7,8 @@ import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import SignUp from './Pages/SignUp/SignUp';
 import 'react-toastify/dist/ReactToastify.css';
+import RequireAuth from './Pages/RequireAuth/RequireAuth';
+import Checkout from './Pages/Checkout/Checkout';
 
 function App() {
   return (
@@ -17,6 +19,11 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
+        <Route path="/checkout" element={
+          <RequireAuth>
+            <Checkout></Checkout>
+          </RequireAuth>
+        }></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
