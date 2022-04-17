@@ -1,0 +1,9 @@
+.question {
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+}
+.question h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
