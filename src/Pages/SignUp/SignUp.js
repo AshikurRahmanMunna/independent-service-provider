@@ -1,31 +1,39 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from "react-firebase-hooks/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import auth from "../../firebase.init";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 import "./SignUp.css";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agree, setAgree] = useState(false);
+  let errorElement;
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-    const navigate = useNavigate();
+  const [updateProfile, updating, errorUpdateProfile] = useUpdateProfile(auth);
+  const navigate = useNavigate();
 
-  const handleSignUp = (event) => {
+  if(error || errorUpdateProfile) {
+    errorElement = <p className="text-danger">{error.message || errorUpdateProfile.message}</p>
+  }
+  const handleSignUp = async (event) => {
     event.preventDefault();
     const firstName = event.target.firstname.value;
     const lastName = event.target.lastname.value;
     const name = `${firstName} ${lastName}`;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const confirmPassword = event.target.confirm.value;
-    console.log(email, password)
-    createUserWithEmailAndPassword(email, password);
-    navigate('/');
+    await createUserWithEmailAndPassword(email, password)
+    await updateProfile({ displayName: name });
   };
+  if(user) {
+    navigate('/');
+  }
+  console.log(user);
   return (
     <div className="form-container d-flex align-items-center justify-content-center">
       <div>
@@ -33,7 +41,12 @@ const SignUp = () => {
           Sign <span className="text-warning">Up</span>
         </h1>
         <form onSubmit={handleSignUp} className="form">
-          <input type="text" name="firstname" placeholder="First Name" required />
+          <input
+            type="text"
+            name="firstname"
+            placeholder="First Name"
+            required
+          />
           <input type="text" name="lastname" placeholder="Last Name" required />
           <input type="email" name="email" placeholder="Email" required />
           <div className="password">
@@ -50,20 +63,7 @@ const SignUp = () => {
               ></FontAwesomeIcon>
             </span>
           </div>
-          <div className="password">
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirm"
-              placeholder="Confirm Password"
-              required
-            />
-            <span className="password-icon">
-              <FontAwesomeIcon
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                icon={showConfirmPassword ? faEyeSlash : faEye}
-              ></FontAwesomeIcon>
-            </span>
-          </div>
+
           <div className="d-flex">
             <input
               type="checkbox"
@@ -80,6 +80,7 @@ const SignUp = () => {
               Agree Our Terms and Conditions.
             </label>
           </div>
+          {errorElement}
           <input
             disabled={!agree}
             type="submit"
@@ -87,6 +88,9 @@ const SignUp = () => {
             value="Sign Up"
           />
         </form>
+        <p>Already Have an account. <span><Link className='text-warning text-decoration-none' to="/login">Log In</Link></span></p>
+        <ToastContainer></ToastContainer>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

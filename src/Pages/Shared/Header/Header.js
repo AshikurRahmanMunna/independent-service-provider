@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <Navbar sticky="top" bg="white" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">Your Doctor</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Cure</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

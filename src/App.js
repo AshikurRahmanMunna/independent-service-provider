@@ -6,6 +6,7 @@ import NotFound from './Pages/NotFound/NotFound';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
 import SignUp from './Pages/SignUp/SignUp';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (

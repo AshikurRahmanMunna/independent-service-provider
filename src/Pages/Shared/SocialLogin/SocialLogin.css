@@ -1,0 +1,19 @@
+.or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.or div {
+    height: 2px;
+    width: 100%;
+    background: rgb(138, 138, 138);
+}
+.or p {
+    padding: 10px 10px 0px 10px;
+}
+.social-login-btn {
+    display: block;
+    margin-bottom: 20px;
+    background: rgb(255, 193, 7);
+    border: none;
+}

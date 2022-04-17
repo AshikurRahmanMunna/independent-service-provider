@@ -1,5 +1,10 @@
+footer {
+    background: #ffe562;
+    border-top: 6px solid #ffd400;
+    color: black;
+}
 .footer-links a {
     display: block;
     text-decoration: none;
-    color: white;
+    color: black;
 }
