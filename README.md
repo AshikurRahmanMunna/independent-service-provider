@@ -11,7 +11,12 @@ This project has the following features
 - [About Me](https://independent-service-prov-ff540.web.app/about)
 - [Blogs](https://independent-service-prov-ff540.web.app/blogs)
 - Service Checkout
-- [Used React Bootstrap](https://react-bootstrap.github.io/)
-- [Used Firebase For Authentication](https://firebase.google.com/)
-- [Used React Router](https://reactrouter.com/)
-- [Used React Router Hook](https://github.com/CSFrequency/react-firebase-hooks)
+
+
+List Of Technologies
+- [React](https://reactjs.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [Firebase For Authentication](https://firebase.google.com/)
+- [React Router](https://reactrouter.com/)
+- [React Router Hook](https://github.com/CSFrequency/react-firebase-hooks)
+- [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
