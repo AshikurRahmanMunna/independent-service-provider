@@ -23,6 +23,7 @@ const SocialLogin = () => {
         navigate(from, {replace: true});
     }
     return (
+        // Social login
         <div>
             <div className='or'>
                 <div></div>

@@ -11,3 +11,9 @@
     color: black;
     padding-left: 100px;
 }
+@media screen and (max-width: 576px) {
+    .contact-container {
+        padding-left: 0;
+        margin-left: 20px;
+    }
+}

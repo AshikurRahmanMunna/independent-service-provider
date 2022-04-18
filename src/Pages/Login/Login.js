@@ -51,6 +51,7 @@ const Login = () => {
     navigate(from, {replace: true});
   }
   return (
+    // Login page
     <div className="form-container d-flex align-items-center justify-content-center">
       <div>
         <h1 className="text-center mb-4">

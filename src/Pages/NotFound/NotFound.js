@@ -4,6 +4,7 @@ import './NotFound.css';
 
 const NotFound = () => {
     return (
+        // Not found page
         <div className='d-flex align-items-center justify-content-center bg'>
             <img src={notFound} alt="page not found" />
         </div>

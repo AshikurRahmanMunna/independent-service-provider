@@ -3,6 +3,7 @@ import { Spinner } from 'react-bootstrap';
 
 const Loading = () => {
     return (
+      // Loading
         <div>
             <div className="d-flex justify-content-center align-items-center">
             <Spinner

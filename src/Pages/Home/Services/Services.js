@@ -5,6 +5,7 @@ import service3 from "../../../images/service-3.jpg";
 import Service from "../Service/Service";
 
 const Services = () => {
+  // Services data
   const services = [
     {
       id: 12122021001,
@@ -31,6 +32,7 @@ const Services = () => {
     },
   ];
   return (
+    // Services
     <div id="services" className="container my-5">
       <h1 className="text-center mb-4" style={{color: '#F91944'}}>My Services</h1>
       <div className="row row-cols-1 row-cols-sm-2 row-cols-lg-3">

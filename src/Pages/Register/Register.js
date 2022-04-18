@@ -54,6 +54,7 @@ const Register = () => {
   }
   console.log(user);
   return (
+    // Register
     <div className="form-container d-flex align-items-center justify-content-center">
       <div>
         <h1 className="text-center mb-4">

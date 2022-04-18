@@ -10,6 +10,7 @@ import './Contact.css'
 
 const Contact = () => {
   return (
+    // Contact
     <div className=" contact py-5">
       <div className="container contact-container">
         <div>

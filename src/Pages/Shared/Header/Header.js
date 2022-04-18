@@ -9,6 +9,7 @@ import CustomLink from "../CustomLink/CustomLink";
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   return (
+    // Header
     <Navbar sticky="top" bg="white" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">Cure</Navbar.Brand>
@@ -16,7 +17,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={CustomLink} to="/">Home</Nav.Link>
-            <Nav.Link as={CustomLink} to="/about">About</Nav.Link>
+            <Nav.Link as={CustomLink} to="/about">About Me</Nav.Link>
             <Nav.Link as={CustomLink} to="/blogs">Blogs</Nav.Link>
             {
               user ? <button onClick={() => signOut(auth)} className="btn btn-link text-decoration-none text-black">Log Out</button> 

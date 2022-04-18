@@ -5,6 +5,7 @@ import './Home.css';
 
 const Home = () => {
   return (
+    // Banner
     <div>
       <section className="banner">
         <div className="container">

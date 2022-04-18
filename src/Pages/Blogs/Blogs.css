@@ -7,3 +7,6 @@
     font-family: 'Playfair Display', serif;
     font-weight: bold;
 }
+.question p {
+    text-align: justify;
+}
