@@ -14,16 +14,15 @@ const Footer = () => {
           <img style={{width: '250px'}} className="m-0 mb-3" src={logo} alt="logo" />
         </div>
         <div className="col-6 col-lg-3 col-md-3 footer-links">
+          <h3>Quick Links</h3>
           <Link to="/login">Login</Link>
-          <Link to="/signup">Signup</Link>
+          <Link to="/register">Register</Link>
           <Link to="/#services">Services</Link>
           <Link to="/about">About Me</Link>
         </div>
         <div className="col-6 col-lg-3 col-md-3 mb-5 footer-links">
-          <Link to="/login">Blogs</Link>
-          <Link to="/signup">Signup</Link>
-          <Link to="/#services">Services</Link>
-          <Link to="/about">About</Link>
+          <h3>Blogs</h3>
+          <Link to="/blogs">Blogs</Link>
         </div>
         <hr className="mt-3" style={{marginBottom: '-80px'}} />
       </div>
