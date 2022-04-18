@@ -2,3 +2,12 @@
     font-family: 'Playfair Display', serif;
     font-weight: bold;
 }
+.my-img {
+    width: 15%;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.about-me {
+    border-radius: 20px;
+}

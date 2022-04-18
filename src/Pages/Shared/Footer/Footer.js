@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from '../../../images/logo.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -10,7 +11,7 @@ const Footer = () => {
     <footer className="mb-0">
       <div className=" container row mx-auto py-5">
         <div className="col-12 col-lg-6 col-md-6">
-          <h1 className="m-0 mb-3">Cure</h1>
+          <img style={{width: '250px'}} className="m-0 mb-3" src={logo} alt="logo" />
         </div>
         <div className="col-6 col-lg-3 col-md-3 footer-links">
           <Link to="/login">Login</Link>

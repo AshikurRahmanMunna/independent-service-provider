@@ -1,7 +1,6 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
-import { Spinner } from "react-bootstrap";
 import {
   useAuthState,
   useCreateUserWithEmailAndPassword,
@@ -19,7 +18,7 @@ const Register = () => {
   const [agree, setAgree] = useState(false);
   let errorElement;
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
   const [updateProfile, updating, errorUpdateProfile] = useUpdateProfile(auth);
   const navigate = useNavigate();
   const location = useLocation();

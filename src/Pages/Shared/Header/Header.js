@@ -1,5 +1,6 @@
 import { signOut } from "firebase/auth";
 import React from "react";
+import logo from '../../../images/logo.png';
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
@@ -12,7 +13,7 @@ const Header = () => {
     // Header
     <Navbar sticky="top" bg="white" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">Cure</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/"><img style={{height: '30px'}} src={logo} alt="" /></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
@@ -20,7 +21,7 @@ const Header = () => {
             <Nav.Link as={CustomLink} to="/about">About Me</Nav.Link>
             <Nav.Link as={CustomLink} to="/blogs">Blogs</Nav.Link>
             {
-              user ? <button onClick={() => signOut(auth)} className="btn btn-link text-decoration-none text-black">Log Out</button> 
+              user ? <button onClick={() => signOut(auth)} className="btn btn-light text-black">Log Out</button> 
               : 
               <>
                 <Nav.Link as={CustomLink} to="/login">Login</Nav.Link>

@@ -44,8 +44,13 @@ const Login = () => {
   };
   const handlePasswordReset = () => {
     const email = emailRef.current.value;
-    sendPasswordResetEmail(email);
+    if(email) {
+      sendPasswordResetEmail(email);
     toast(`Email sent to ${email}`);
+    }
+    else {
+      toast('Please enter an email to send email');
+    }
   };
   if (user) {
     navigate(from, {replace: true});
